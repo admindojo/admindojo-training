@@ -1,0 +1,10 @@
+name: ub18-apache-1
+title: Serve a static Website with Apache
+maintainer: Marvin Heimbrodt
+copyright: Marvin Heimbrodt
+copyright_email: marvin@6uhrmittag.de
+license: Apache-2.0
+summary: Setup a basic web server with http and https
+version: 0.1.0
+supports:
+  platform: os
