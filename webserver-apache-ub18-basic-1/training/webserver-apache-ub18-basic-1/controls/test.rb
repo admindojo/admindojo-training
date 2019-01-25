@@ -4,6 +4,7 @@ control '1' do
 	title 'Install Apache'
 	desc ''
 	tag duration: '10'
+    tag help: ''
 	describe package('apache2') do
 		it { should be_installed }
 	end
@@ -14,6 +15,7 @@ control '2' do
 	title 'Setup Apache service'
 	desc ''
 	tag duration: '5'
+    tag help: ''
 	describe service('apache2') do
 		it { should be_installed }
 		it { should be_enabled }
@@ -26,6 +28,7 @@ control '3' do
 	title 'Serve HTTP'
 	desc ''
 	tag duration: '5'
+    tag help: ''
 	describe port(80) do
 		it { should be_listening }
 	end
@@ -40,6 +43,7 @@ control '4' do
 	title 'Serve HTTPS'
 	desc ''
 	tag duration: '5'
+    tag help: ''
 	describe port(443) do
 		it { should be_listening }
 	end
