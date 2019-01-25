@@ -10,7 +10,10 @@ Vagrant.configure(2) do |config|
     config.vm.synced_folder "../admindojo", "/admindojo"
 
     config.vm.provider "virtualbox" do |vb|
-        vb.name = 'webserver-apache-basic-1'
+        # boxname = TraingID
+        vb.name = 'webserver-apache-ub18-basic-1'
+        # hostname = short TrainingID
+        config.vm.hostname = 'apache-basic-1'
         vb.memory = 2048
         vb.cpus = 2
         # performance tweak
