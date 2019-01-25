@@ -8,6 +8,7 @@ Vagrant.configure(2) do |config|
     config.vm.provision :shell, path: "../admindojo/internal/bootstrap.sh"
     config.vm.synced_folder ".", "/vagrant"
     config.vm.synced_folder "../admindojo", "/admindojo"
+    config.vm.post_up_message = 'Type "vagrant ssh" to start the training'
 
     config.vm.provider "virtualbox" do |vb|
         # boxname = TraingID
