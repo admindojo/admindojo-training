@@ -2,6 +2,9 @@
 
 apt update
 
+# make sure basic requirements are installed
+apt install -y git
+
 # install inspec
 apt install -y ruby
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
