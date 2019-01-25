@@ -1,21 +1,29 @@
 # encoding: utf-8
 control '1' do
 	impact 'critical'
-	title 'Web server'
+	title 'Install Apache'
 	desc ''
 	tag duration: '10'
 	describe package('apache2') do
 		it { should be_installed }
 	end
+end
+
+control '2' do
+	impact 'critical'
+	title 'Setup Apache service'
+	desc ''
+	tag duration: '5'
 	describe service('apache2') do
 		it { should be_installed }
 		it { should be_enabled }
 		it { should be_running }
 	end
 end
-control '2' do
+
+control '3' do
 	impact 'critical'
-	title 'HTTP'
+	title 'Serve HTTP'
 	desc ''
 	tag duration: '5'
 	describe port(80) do
@@ -27,9 +35,9 @@ control '2' do
 		its('headers.Content-Type') { should cmp 'text/html' }
 	end
 end
-control '3' do
+control '4' do
 	impact 'critical'
-	title 'HTTPS'
+	title 'Serve HTTPS'
 	desc ''
 	tag duration: '5'
 	describe port(443) do
