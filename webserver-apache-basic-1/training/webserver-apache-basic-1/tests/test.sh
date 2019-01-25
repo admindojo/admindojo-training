@@ -7,4 +7,4 @@ service apache2 start
 echo "Hello World!" > /var/www/html/index.html
 a2enmod ssl
 a2ensite default-ssl.conf
-systemctl reload apache2.service
+systemctl reload apache2
