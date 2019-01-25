@@ -22,7 +22,7 @@ rm /etc/update-motd.d/51-cloudguest
 rm /etc/update-motd.d/80-esm
 rm /etc/update-motd.d/95-hwe-eol
 rm /etc/update-motd.d/91-release-upgrade
-rm /etc/update-motd.d/00-header
+rm /etc/update-motd.d/10-help-text
 
 # install admindojo
 apt install -y python3-pip
