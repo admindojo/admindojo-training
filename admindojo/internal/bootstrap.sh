@@ -3,10 +3,10 @@
 apt update
 
 # make sure basic requirements are installed
-apt install -y git
+apt install -y -q --no-install-recommends git
 
 # install inspec
-apt install -y ruby
+apt install -y --no-install-recommends ruby
 curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
 
 # install tuptime for detailed uptime
