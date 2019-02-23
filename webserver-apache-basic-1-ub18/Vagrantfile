@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Training Vagrantfiles share a common configuration located in /admindojo/internal/Vagrantfile_base
+# To inject training specific overwrites or additions please use
+# 'Vagrantfile-overwrite-config' for Vagrant config
+# 'Vagrantfile-overwrite-vm' for VM/Virtualbox config
+# Both files are located in {trainingdir}/config/
+
+vagrant_dir = __dir__
+vagrant_basefile = '../admindojo/internal/Vagrantfile-base'
+current_dir = File.basename(Dir.getwd)
+
+Vagrant.configure(2) do |config|
+
+    # load common Vagrantfile
+    if File.exist?( vagrant_basefile)
+        eval(IO.read(vagrant_basefile), binding)
+    end
+
+end

@@ -1,0 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Overwrite config.x settings
+# Example:
+# config.vm.synced_folder "../admindojo/config", "/overwrite"
