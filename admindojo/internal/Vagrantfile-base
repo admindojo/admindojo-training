@@ -1,0 +1,88 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Common Vagrant base configuration
+# Overwrites and additions via
+# 'Vagrantfile-overwrite-config' for Vagrant config
+# 'Vagrantfile-overwrite-vm' for VM/Virtualbox config
+# Both files are located in {trainingdir}/config/
+
+    ## Config Plugins
+
+    # Plugin vagrant-cachier is unstable on Windows -> Problem unlinking file after apt install
+
+    ## disable auto update guestools in case plugin is installed
+    #config.vbguest.auto_update = false
+    ## required plugins:
+    ##http://fgrehm.viewdocs.io/vagrant-cachier/usage
+    #required_plugins = %w(
+    #vagrant-cachier
+    #)
+    ## autoinstall plugins to host -> *TODO* Test on different OS
+    #required_plugins.each do |plugin|
+    #  unless Vagrant.has_plugin? plugin
+    #    system "vagrant plugin install #{plugin}"
+    #  end
+    #end
+    # config caching of apt files across all boxes
+    config.cache.enable :apt
+    # fix permission issue
+    # https://github.com/fgrehm/vagrant-cachier/issues/185
+    #config.cache.synced_folder_opts = {
+    #   owner: "_apt",
+    #   mount_options: ["dmode=777", "fmode=666"],
+    #}
+    #if Vagrant.has_plugin?("vagrant-cachier")
+    #    config.cache.scope = :box
+    #end
+
+
+    config.vm.box = "ubuntu/bionic64"
+    config.vm.provision :shell, path: "../admindojo/internal/bootstrap.sh"
+    config.vm.synced_folder ".", "/vagrant"
+    config.vm.synced_folder "../admindojo", "/admindojo"
+    # used for development only:
+    config.vm.synced_folder "../../admindojo-client", "/admindojoclient"
+
+    # Message to welcome user
+    config.vm.post_up_message = <<-EOF
+    #######      Your admindojo is ready      #######
+
+    1. Type 'vagrant ssh' to jump into your VM
+    2. Type 'admindojo --help' to start your training
+    3. Type 'admindojo check' to check your result
+
+    run 'admindojo --help' for help
+
+    EOF
+
+    config.vm.provider "virtualbox" do |vb|
+
+        vb.memory = 2048
+        vb.cpus = 2
+        vb.name = current_dir
+
+        # performance tweak
+        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+        vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000 ]
+
+        # load overwrite Vagrantfile
+        if File.exist?( 'config/Vagrantfile-overwrite-vm')
+            eval(IO.read("config/Vagrantfile-overwrite-vm"), binding)
+        end
+    end
+
+    # Run cleanup at 'vagrant destroy'
+    config.trigger.before :destroy do |trigger|
+      trigger.warn = "Your progress will be deleted!"
+      trigger.run_remote = {path:  "../admindojo/internal/destroy.sh"}
+    end
+
+    # load overwrite Vagrantfile
+    if File.exist?( 'config/Vagrantfile-overwrite-config')
+        eval(IO.read("config/Vagrantfile-overwrite-config"), binding)
+    end
+
+
+

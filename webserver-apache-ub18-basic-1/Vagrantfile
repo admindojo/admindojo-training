@@ -1,26 +1,21 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Training Vagrantfiles share a common configuration located in /admindojo/internal/Vagrantfile_base
+# To inject training specific overwrites or additions please use
+# 'Vagrantfile-overwrite-config' for Vagrant config
+# 'Vagrantfile-overwrite-vm' for VM/Virtualbox config
+# Both files are located in {trainingdir}/config/
+
+vagrant_dir = __dir__
+vagrant_basefile = '../admindojo/internal/Vagrantfile-base'
+current_dir = File.basename(Dir.getwd)
+
 Vagrant.configure(2) do |config|
-    config.vbguest.auto_update = false
 
-    config.vm.box = "ubuntu/bionic64"
-    config.vm.provision :shell, path: "../admindojo/internal/bootstrap.sh"
-    config.vm.synced_folder ".", "/vagrant"
-    config.vm.synced_folder "../admindojo", "/admindojo"
-    config.vm.post_up_message = 'Type "vagrant ssh" to start the training'
-
-    config.vm.provider "virtualbox" do |vb|
-        # boxname = TraingID
-        vb.name = 'webserver-apache-ub18-basic-1'
-        # hostname = short TrainingID
-        config.vm.hostname = 'apache-basic-1'
-        vb.memory = 2048
-        vb.cpus = 2
-        # performance tweak
-        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-        vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-        vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000 ]
+    # load common Vagrantfile
+    if File.exist?( vagrant_basefile)
+        eval(IO.read(vagrant_basefile), binding)
     end
 
 end
