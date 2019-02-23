@@ -9,10 +9,10 @@
 
     ## Config Plugins
 
-    # Plugin vagrant-cachier is unstable on Windows -> Problem unlinking file after apt install
+    # disable auto update guestools in case plugin is installed
+    config.vbguest.auto_update = false
 
-    ## disable auto update guestools in case plugin is installed
-    #config.vbguest.auto_update = false
+    # Plugin vagrant-cachier is unstable on Windows -> Problem unlinking file after apt install
     ## required plugins:
     ##http://fgrehm.viewdocs.io/vagrant-cachier/usage
     #required_plugins = %w(
