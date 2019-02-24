@@ -56,3 +56,43 @@ For simple tranings a bash script is ok.
 ## template
 
 Currently no empty template is available. Please copy an existing training and change it accordingly.
+
+## HTML page
+
+Template
+
+````markdown
+---
+id: ID
+title: summary
+---
+
+summary
+
+Training ID: *ID*
+
+## Scenario
+
+Scenario description... you got X.. your customer wants Z....
+
+## Objectives
+
+- X
+
+## Detailed explanation (spoilers)
+
+### TOOLX
+
+<details><summary>click to show</summary>
+<p>
+
+loremipsum
+
+External resources
+- [desctiption](url)
+
+</p>
+</details>
+
+
+````
