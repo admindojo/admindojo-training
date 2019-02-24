@@ -2,3 +2,4 @@
 #[Environment]::SetEnvironmentVariable("ADMINDOJO", "false", "User")
 #[Environment]::SetEnvironmentVariable("ADMINDOJO", "false", "Process")
 Remove-Item Env:\ADMINDOJO_TESTING
+Remove-Item Env:\ADMINDOJO_DEV

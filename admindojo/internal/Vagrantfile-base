@@ -14,7 +14,7 @@
 
     # Plugin vagrant-cachier is unstable on Windows -> Problem unlinking file after apt install
     # disable for testing only
-    if ENV['ADMINDOJO_TESTING'] == "true"
+    if ENV['ADMINDOJO_DEV'] == "true"
         #=begin
         # required plugins:
         # http://fgrehm.viewdocs.io/vagrant-cachier/usage
@@ -48,6 +48,10 @@
     config.vm.synced_folder "../admindojo", "/admindojo"
     # used for development only:
     config.vm.synced_folder "../../admindojo-client", "/admindojoclient"
+
+    if ENV['ADMINDOJO_TESTING'] == "true"
+        config.vm.provision :shell, path: "../admindojo/internal/testing.sh"
+    end
 
     # Message to welcome user
     config.vm.post_up_message = <<-EOF

@@ -19,7 +19,8 @@ admindojo\development: notes etc. used for development
 admindojo\internal: Common configuration files
 admindojo\internal\bootstrap.sh: Install required tools
 admindojo\internal\destroy.sh: Cleanup at "vagrant destroy"
-admindojo\internal\setup-test-env.ps1:  Setup Dev-ENV for Windows 
+admindojo\internal\setup-dev-env.ps1:  Setup Dev-ENV for Windows 
+admindojo\internal\setup-test-env.ps1:  Setup Test-ENV for Windows (auto test training)
 admindojo\internal\teardown-test-env.ps1: Teardown Dev-ENV for Windows 
 admindojo\internal\testing.sh: 
 admindojo\internal\Vagrantfile-base: Common Vagrantfile
@@ -52,6 +53,11 @@ $trainingID\taining\tests\: Scripts to fully test the training. Should contain e
 Since admindojo is used to teach, each training should be 100% correct and solvable.
 `$trainingID\taining\tests\` Should contain everything needed to solve the traning with 100%.
 For simple tranings a bash script is ok.
+
+To build VM, run tests and run Inspec:
+1. `. admindojo\internal\setup-dev-env.ps1`
+2. `. admindojo\internal\setup-test-env.ps1`
+3. `vagrant up`
 
 ## template
 
