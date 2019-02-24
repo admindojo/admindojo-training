@@ -8,7 +8,7 @@ Setup a basic web server with HTTP and HTTPS serve a static HTML file.
 
 Training ID: *webserver-apache-ub18-basic-1*
 
-## Objective
+## Objectives
 - setup a apache web server with default configuration
 - serve a website that contains `Hello World!`as landing-page (plaintext, no need for HTML).
 - make your website accessible via SSL (a simple selfsigned-snakeoil cert is ok)

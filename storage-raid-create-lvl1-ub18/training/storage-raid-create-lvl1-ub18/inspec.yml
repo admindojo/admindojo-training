@@ -1,0 +1,10 @@
+name: storage-raid-create-lvl1-ub18
+title: Create a level 1 raid from empty disks
+maintainer: Marvin Heimbrodt
+copyright: Marvin Heimbrodt
+copyright_email: marvin@6uhrmittag.de
+license: Apache-2.0
+summary: Create a level 1 raid from empty disks
+version: 0.1.0
+supports:
+  platform: os

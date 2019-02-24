@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Overwrite vb.x settings
+# Example:
+# vb.cpus = 2
+
+
+# add multiple disks
+disk_size = 1 * 1024
+path_disk1 = 'tmp/raid-data-disk1.vdi'
+path_disk2 = 'tmp/raid-data-disk2.vdi'
+
+unless File.exist?(path_disk1)
+  vb.customize ['createhd', '--filename', path_disk1, '--size', disk_size]
+end
+unless File.exist?(path_disk2)
+  vb.customize ['createhd', '--filename', path_disk2, '--size', disk_size]
+end
+
+vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', path_disk1]
+vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', path_disk2]
