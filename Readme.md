@@ -24,3 +24,14 @@ Visit [admindojo.org](https://admindojo.org/getting-started) for more informatio
 4. Type `vagrant ssh`
     - You're now inside the VM and can start the training
 5. Run `admindojo` for instructions
+
+
+# Bugs and Feedback
+
+Feedback and bug reports are highly welcome!
+
+Please create a [new issuee at github](https://github.com/admindojo/admindojo-training/issues/new)
+
+# Contributing
+
+To create new trainings please see [admindojo\development\Readme.md](admindojo\development\Readme.md)
