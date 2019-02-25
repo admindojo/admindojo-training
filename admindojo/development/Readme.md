@@ -32,6 +32,7 @@ admindojo\results\$Trainingname:
 
 ````text
 $trainingID\
+$trainingID\README.md: Content that is used to generate the HTML page at admindojo.org. Should be usable without changes.
 $trainingID\Vagrantfile: Base Vagrantfile
 $trainingID\config\
 $trainingID\config\Vagrantfile-overwrite-config: Overwrites for Vagrantfile
@@ -39,7 +40,6 @@ $trainingID\config\Vagrantfile-overwrite-vm: Overwrites for Vagrantfile
 $trainingID\internal\
 $trainingID\tmp\: Temporary files for training that should survive restart or reload. Removed at vagrant destroy
 $trainingID\taining\: Inspec profile directory. Follows Inspec structure
-$trainingID\taining\README.md: Content that is used to generate the HTML page at admindojo.org. Should be usable without changes.
 $trainingID\taining\inspec.yaml: Content is used to generate the HTML page at admindojo.org
 $trainingID\taining\controls\: One test.rb that contains all tests for this training
 $trainingID\taining\libraries\: See Inspec readme
