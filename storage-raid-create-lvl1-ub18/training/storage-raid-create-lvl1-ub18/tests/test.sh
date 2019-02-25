@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 apt-get  update
-apt-get -y install mdadm parted
-mdadm --create --verbose /dev/md0 --level=0 --raid-devices=2 /dev/sdc /dev/sdd
+apt-get -y install mdadm
+yes | mdadm --create  --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdc /dev/sdd
 mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
-echo '/dev/md0 /mnt/md0 ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
+mkfs.btrfs /dev/md0
+mkdir /data
+UUID=$(blkid  | grep md0 | cut -d '"' -f2); echo "UUID=$UUID /data btrfs defaults 0 0" | sudo tee -a /etc/fstab
+update-initramfs -u

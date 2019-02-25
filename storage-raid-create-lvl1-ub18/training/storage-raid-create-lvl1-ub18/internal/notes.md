@@ -1,1 +1,9 @@
-https://btrfs.wiki.kernel.org/index.php/Status
+- https://btrfs.wiki.kernel.org/index.php/Status
+- https://www.thegeekstuff.com/2009/07/how-to-view-modify-and-recreate-initrd-img/
+- https://unix.stackexchange.com/questions/366949/when-and-where-to-use-rw-nofail-noatime-discard-defaults
+- https://wiki.archlinux.org/index.php/fstab
+    - "If the root file system is btrfs, the fsck order should be set to 0 instead of 1. See fsck.btrfs(8)."
+- `lsblk -f
+- https://unix.stackexchange.com/questions/480391/btrfs-raid-1-vs-mdadm-raid-1`
+- https://btrfs.wiki.kernel.org/index.php/SysadminGuide#RAID_and_data_replication
+- https://wiki.archlinux.org/index.php/btrfs#RAID
