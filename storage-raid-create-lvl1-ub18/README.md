@@ -25,7 +25,7 @@ But, in case they don't like Btrfs, they only want to convert the filesystem wit
 ## Notes
 
 - After you reboot your VM you need to run `vagrant reload --no-provision` inside the training directory to [mount required directories](https://github.com/hashicorp/vagrant/issues/1845)
-- In case your VM doesn't boot anymore or the HDDs are broken just run `vagrant destroy` and `vagrant up` to delete the VM and start over.
+- In case your VM doesn't boot anymore or the HDDs are broken just run `vagrant destroy` followed by `vagrant up` to delete the VM and start over.
 
 
 ## Detailed explanation (spoilers)
@@ -90,6 +90,23 @@ Adding mounts is pretty straight forward. Remember to use the UUID to identify p
 
 It is worth to check out all available `options` in [mount(8)](https://manpages.ubuntu.com/manpages/cosmic/en/man8/mount.8.html). It is always good to lookup options when copying from tutorials or other posts.
 Usually adding only `defaults` is fine(note that defaults are always included by default even if you don't add it. It's only needed because the options field can't be empty).
+
+*/etc/fstab.d/?*
+
+fstab.d is woth to talk about. Usually it's good practice to put additional configuration files in separate x*.d* directories in case they exist.
+But even though a /etc/fstab.d/ directory can exist, a websearch shows that it's not 100% save to use. The main reasons are:
+
+- /etc/fstab has a long history and other tools may only check this file for mounts
+- typically the file only contains a handful of entries
+- systemd provides a modern way to systematically configure many mounts
+
+Check out this interesting discussion by developers of systemd, mound and libremount: [/etc/fstab.d yes or not](https://lists.gt.net/linux/kernel/1480405)
+
+> And we don't want to support that in systemd. [...]
+> The gain of features from fstab.d/ vs. the amount of breakage it 
+causes is not worth the trouble. 
+
+So, since the content of /etc/fstab is vital for your system, you probably should just use the good old /etc/fstab file. 
 
 External resources
 - [autofs](https://wiki.archlinux.org/index.php/autofs)
