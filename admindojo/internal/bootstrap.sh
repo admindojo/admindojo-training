@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# allow password login
+sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config
+sed -i 's/PasswordAuthentification no/PasswordAuthentification yes/g' /etc/ssh/sshd_config
+service ssh restart
+
 apt-get update
 
 # make sure basic requirements are installed
