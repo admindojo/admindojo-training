@@ -30,12 +30,29 @@ But, in case they don't like Btrfs, they only want to convert the filesystem wit
 
 ## Detailed explanation (spoilers)
 
-### btrs
+### partitioning
 
 <details><summary>click to show</summary>
 <p>
 
-Btrs is a modern filesystem for Linux that implements advanced features like:
+Disks are organized in partitions. Partitions than have a filesystem that is used to store the files.
+While it is possible to create a [RAID of whole disks](https://raid.wiki.kernel.org/index.php/Partition_Types), there is no 100% right answer whether to [use whole disks or partitions](https://unix.stackexchange.com/questions/320103/whats-the-difference-between-creating-mdadm-array-using-partitions-or-the-whole). 
+For this training, we'll go with partitions. By using partitions we're able to precisely specifying the size to 1000MB each. 
+
+To list all available disks, [fdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html) can be used.
+Since everything in Linux is a file, disks have a path too. Once you know the path of both disk, you can use [cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html) to create a partition.
+
+While fdisk can be used for partitioning as well, cfdisk provides a simple graphical interface.
+
+</p>
+
+
+### filesystem: btrfs
+
+<details><summary>click to show</summary>
+<p>
+
+btrfs is a modern filesystem for Linux that implements advanced features like:
 
 - Snapshots
 - Checksums

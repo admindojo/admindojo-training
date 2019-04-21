@@ -2,6 +2,22 @@
 
 control '1' do
 	impact 'critical'
+	title 'Disks are partitioned'
+	desc ''
+	tag duration: '10'
+    tag help: ''
+
+    describe filesystem('/dev/sdc1') do
+      its('size_kb') { should be >= 900 * 1024}
+    end
+
+    describe filesystem('/dev/sdd1') do
+      its('size_kb') { should be >= 900 * 1024}
+    end
+end
+
+control '2' do
+	impact 'critical'
 	title 'mdadm installed'
 	desc ''
 	tag duration: '2'
@@ -11,7 +27,7 @@ control '1' do
 	end
 end
 
-control '2' do
+control '3' do
 	impact 'critical'
 	title 'md0 created'
 	desc ''
@@ -23,7 +39,7 @@ control '2' do
     end
 end
 
-control '3' do
+control '' do
 	impact 'critical'
 	title 'md0 clean'
 	desc ''
@@ -35,7 +51,7 @@ control '3' do
     end
 end
 
-control '4' do
+control '5' do
 	impact 'critical'
 	title 'filesystem is btrfs'
 	desc ''
@@ -50,7 +66,7 @@ control '4' do
 end
 
 
-control '5' do
+control '6' do
 	impact 'critical'
 	title 'mount persistent across reboot'
 	desc ''

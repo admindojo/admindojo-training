@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 apt-get  update
 apt-get -y install mdadm
-yes | mdadm --create  --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdc /dev/sdd
+yes | mdadm --create  --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdc1 /dev/sdd1
 mdadm --detail --scan | sudo tee -a /etc/mdadm/mdadm.conf
 mkfs.btrfs /dev/md0
 mkdir /data
