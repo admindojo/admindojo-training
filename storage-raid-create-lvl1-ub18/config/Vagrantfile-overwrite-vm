@@ -18,5 +18,5 @@ unless File.exist?(path_disk2)
   vb.customize ['createhd', '--filename', path_disk2, '--size', disk_size]
 end
 
-vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', path_disk1]
-vb.customize ['storageattach', :id, '--storagectl', 'SCSI', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', path_disk2]
+vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', path_disk1]
+vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 3, '--device', 0, '--type', 'hdd', '--medium', path_disk2]

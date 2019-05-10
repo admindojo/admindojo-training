@@ -24,7 +24,7 @@ But, in case they don't like Btrfs, they only want to convert the filesystem wit
 
 ## Notes
 
-- After you reboot your VM you need to run `vagrant reload --no-provision` inside the training directory to [mount required directories](https://github.com/hashicorp/vagrant/issues/1845)
+- After you reboot your VM you need to run `vagrant reload` inside the training directory to [mount required directories](https://github.com/hashicorp/vagrant/issues/1845)
 - In case your VM doesn't boot anymore or the HDDs are broken just run `vagrant destroy` followed by `vagrant up` to delete the VM and start over.
 
 

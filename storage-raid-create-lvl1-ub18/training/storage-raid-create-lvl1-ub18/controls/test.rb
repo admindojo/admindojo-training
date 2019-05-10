@@ -7,11 +7,11 @@ control '1' do
 	tag duration: '10'
     tag help: ''
 
-    describe filesystem('/dev/sdc1') do
+    describe filesystem('/dev/sdb1') do
       its('size_kb') { should be >= 900 * 1024}
     end
 
-    describe filesystem('/dev/sdd1') do
+    describe filesystem('/dev/sdc1') do
       its('size_kb') { should be >= 900 * 1024}
     end
 end
@@ -39,7 +39,7 @@ control '3' do
     end
 end
 
-control '' do
+control '4' do
 	impact 'critical'
 	title 'md0 clean'
 	desc ''
