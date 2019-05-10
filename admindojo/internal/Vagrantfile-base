@@ -61,13 +61,14 @@
     config.vm.post_up_message = <<-EOF
     #######      Your admindojo is ready      #######
 
-    Notice: This VM comes with pre-installed InSpec by Chef.io which is distributed under Apache 2.0 license
+    Notice: This VM comes with pre-installed InSpec by Chef.io,
+            distributed under Apache 2.0 license.
 
-    1. Type 'vagrant ssh' to jump into your VM
-    2. Type 'admindojo --help' to start your training
+    1. Type 'vagrant ssh' to jump into the VM
+    2. Type 'admindojo start' to start training
     3. Type 'admindojo check' to check your result
 
-    run 'admindojo --help' for help
+    Instructions: https://admindojo.org/instructions/#{current_dir}
 
     EOF
 
