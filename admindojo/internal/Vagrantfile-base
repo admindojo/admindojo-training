@@ -43,7 +43,8 @@
 
 
     config.vm.box = "ubuntu/bionic64"
-    config.vm.provision :shell, path: "../admindojo/internal/bootstrap.sh"
+    config.vm.provision :shell, path: "../admindojo/internal/bootstrap_debian.sh"
+
     config.vm.synced_folder ".", "/vagrant"
     config.vm.synced_folder "../admindojo", "/admindojo"
     # used for development only:
