@@ -27,17 +27,17 @@ fi
 
 # remove banner
 if [ -f '/etc/update-motd.d/50-motd-news' ]; then
-    rm /etc/update-motd.d/50-motd-news
-    rm /etc/update-motd.d/80-livepatch
-    rm /etc/update-motd.d/51-cloudguest
-    rm /etc/update-motd.d/80-esm
-    rm /etc/update-motd.d/95-hwe-eol
-    rm /etc/update-motd.d/91-release-upgrade
-    rm /etc/update-motd.d/10-help-text
+    rm --interactive=never -f /etc/update-motd.d/50-motd-news
+    rm --interactive=never -f /etc/update-motd.d/80-livepatch
+    rm --interactive=never -f /etc/update-motd.d/51-cloudguest
+    rm --interactive=never -f /etc/update-motd.d/80-esm
+    rm --interactive=never -f /etc/update-motd.d/95-hwe-eol
+    rm --interactive=never -f /etc/update-motd.d/91-release-upgrade
+    rm --interactive=never -f /etc/update-motd.d/10-help-text
 fi
 
 # install admindojo
-apt-get install -y python3-pip
+apt-get install -y -q python3-pip
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade admindojo
 
