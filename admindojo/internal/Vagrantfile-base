@@ -47,8 +47,11 @@
 
     config.vm.synced_folder ".", "/vagrant"
     config.vm.synced_folder "../admindojo", "/admindojo"
+
+    if ENV['ADMINDOJO_TESTING'] == "true"
     # used for development only:
-    config.vm.synced_folder "../../admindojo-client", "/admindojoclient"
+        config.vm.synced_folder "../../admindojo-client", "/admindojoclient"
+    end
 
     if ENV['ADMINDOJO_TESTING'] == "true"
         config.vm.provision :shell, path: "../admindojo/internal/testing.sh"
