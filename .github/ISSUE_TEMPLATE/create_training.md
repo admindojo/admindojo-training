@@ -1,17 +1,21 @@
 ---
 name: create_training
-about: Describe this issue template's purpose here.
+about: Idea for a new training
 title: "[newTraining] - TITLE"
 labels: ''
 assignees: 6uhrmittag
 
 ---
 
-title:
+**title**:
 
-topic:
+**summary**:
 
-summary:
+**Training outline**:
+- ...
+- ..
+
+**Todo**:
 
 - [ ] choose name
 - [ ] create branch
