@@ -5,9 +5,18 @@
 
 # Develop trainings
 
+## issue
+Please create a issue for each training(idea) at: https://github.com/admindojo/admindojo-training/issues
+Use the provided template - it contains a checklist to follow.
+
 ## naming
 - each training needs a unique name - it's also refered as it's Training-ID
 - naming convention: `<category>-<tool/subject>-<sub-subject>-<level|counter>-<OS or distribution>`
+
+## template
+To generate a training please use boilr - a template is available at: https://github.com/admindojo/boilr-templates.
+The template generates all files necessary - other instructions may be out of date.
+The files generated files include information how to customize them.
 
 ## shared configuration
 `admindojo\` contains user files and common VM-configuration.
@@ -41,6 +50,7 @@ $trainingID\internal\
 $trainingID\tmp\: Temporary files for training that should survive restart or reload. Removed at vagrant destroy
 $trainingID\taining\: Inspec profile directory. Follows Inspec structure
 $trainingID\taining\inspec.yaml: Content is used to generate the HTML page at admindojo.org
+$trainingID\taining\token.sh: Script to generate a token for admindojo.org
 $trainingID\taining\controls\: One test.rb that contains all tests for this training
 $trainingID\taining\libraries\: See Inspec readme
 $trainingID\taining\tests\: Scripts to fully test the training. Should contain everything to automatically succeed the training. 
@@ -58,47 +68,3 @@ To build VM, run tests and run Inspec:
 1. `. admindojo\internal\setup-dev-env.ps1`
 2. `. admindojo\internal\setup-test-env.ps1`
 3. `vagrant up`
-
-## template
-
-Currently no empty template is available. Please copy an existing training and change it accordingly.
-
-## HTML page
-
-Template
-
-````markdown
----
-id: ID
-title: summary
----
-
-summary
-
-Training ID: *ID*
-
-## Scenario
-
-Scenario description... you got X.. your customer wants Z....
-
-## Objectives
-
-- X
-
-## Detailed explanation (spoilers)
-
-### TOOLX
-
-<details><summary>click to show</summary>
-<p>
-
-loremipsum
-
-External resources
-- [desctiption](url)
-
-</p>
-</details>
-
-
-````
