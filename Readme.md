@@ -34,4 +34,4 @@ Please create a [new issuee at github](https://github.com/admindojo/admindojo-tr
 
 # Contributing
 
-To create new trainings please see [admindojo\development\Readme.md](admindojo\development\Readme.md)
+To create new trainings please see [admindojo\development\Readme.md](https://github.com/admindojo/admindojo-training/blob/master/admindojo/development/Readme.md)
