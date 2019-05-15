@@ -4,7 +4,7 @@ maintainer: Marvin Heimbrodt
 copyright: Marvin Heimbrodt
 copyright_email: marvin@6uhrmittag.de
 license: Apache-2.0
-summary: Setup a basic web server with HTTP and HTTPS serve a static HTML file.
+summary: Setup a basic web server and serve a static HTML file via HTTP and HTTPS
 version: 0.1.0
 supports:
   platform: os
