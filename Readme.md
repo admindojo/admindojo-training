@@ -1,6 +1,6 @@
 <h1 align="center">
   <p align="center">admindojo.org</p>
-  <a href="https://admindojo.org"><img height="300" src="https://admindojo.org/img/dojo_round.png" alt="admindojo"></a>
+  <a href="https://admindojo.org"><img height="300" src="https://admindojo.org/themes/admindojo/static/img/dojo_round.png" alt="admindojo"></a>
 </h1>
 
 # Introduction
