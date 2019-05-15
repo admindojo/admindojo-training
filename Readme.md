@@ -30,7 +30,7 @@ Visit [admindojo.org](https://admindojo.org/getting-started) for more informatio
 
 Feedback and bug reports are highly welcome!
 
-Please create a [new issuee at github](https://github.com/admindojo/admindojo-training/issues/new)
+Please create a [new issue at github](https://github.com/admindojo/admindojo-training/issues/new)
 
 # Contributing
 
