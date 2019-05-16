@@ -1,0 +1,10 @@
+name: system-packages-usage-1-ub18
+title:
+maintainer: admindjojo
+copyright:
+copyright_email:
+license: Apache-2.0
+summary:
+version: 0.1.0
+supports:
+  platform: os
