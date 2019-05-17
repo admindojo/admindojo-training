@@ -10,7 +10,9 @@
     ## Config Plugins
 
     # disable auto update guestools in case plugin is installed
-    config.vbguest.auto_update = false
+    if Vagrant.has_plugin?("vbguest")
+        config.vbguest.auto_update = false
+    end
 
     # Plugin vagrant-cachier is unstable on Windows -> Problem unlinking file after apt install
     # disable for testing only
