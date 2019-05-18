@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Overwrite config.x settings
+# Example:
+# config.vm.synced_folder "../admindojo/config", "/overwrite"
+
+config.vm.provision :shell, path: "internal/bootstrap_training.sh"

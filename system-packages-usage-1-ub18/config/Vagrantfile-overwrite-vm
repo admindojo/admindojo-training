@@ -1,0 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Overwrite vb.x settings
+# Example:
+# vb.cpus = 2
