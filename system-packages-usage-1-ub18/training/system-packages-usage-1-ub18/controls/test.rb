@@ -55,7 +55,7 @@ control '2' do
 
 end
 
-control '2' do
+control '3' do
 	impact 'critical'
 	title 'Purge apache2'
 	desc '' # detailed description
@@ -80,5 +80,22 @@ control '2' do
     end
     describe file('/var/lib/apache2') do
         it { should_not exist }
+    end
+end
+
+control '4' do
+	impact 'critical'
+	title 'Restore /etc/crontab'
+	desc '' # detailed description
+	tag duration: '15' # estimated time to complete task in min
+    tag help: '' # optional URL to help
+
+    describe file('/etc/crontab') do
+        it { should exist }
+        its('md5sum') { should eq '8f111d100ea459f68d333d63a8ef2205' }
+    end
+    describe file('/etc/crontab.backup') do
+        it { should exist }
+        its('md5sum') { should eq '8e87cc59e9912032a41c13358665f3fa' }
     end
 end

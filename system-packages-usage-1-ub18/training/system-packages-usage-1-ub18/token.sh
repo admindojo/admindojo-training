@@ -6,10 +6,9 @@ TOKEN=""
 # don't use fancy commands, they should work on all distributions
 # only generate hashes of files and commands that never change
 # example:
-TOKEN1=$(curl localhost --silent | md5sum | awk '{print $1}')
-TOKEN2=$(curl -k https://localhost --silent | md5sum | awk '{print $1}')
-TOKEN3=$(curl -I --silent  http://localhost  | grep Server | cut -d/ -f1 | md5sum | awk '{print $1}')
-TOKEN=$(echo -n $TOKEN1 $TOKEN2 $TOKEN3 | md5sum | awk '{print $1}')
+TOKEN1=$(md5sum /etc/crontab | awk '{print $1}')
+TOKEN2=$(md5sum /etc/crontab.backup | awk '{print $1}')
+TOKEN=$(echo -n $TOKEN1 $TOKEN2 | md5sum | awk '{print $1}')
 
 # Script MUST output ONE string
 echo ${TOKEN}
