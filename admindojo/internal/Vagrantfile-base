@@ -50,7 +50,7 @@
     config.vm.synced_folder ".", "/vagrant"
     config.vm.synced_folder "../admindojo", "/admindojo"
 
-    if ENV['ADMINDOJO_TESTING'] == "true"
+    if ENV['ADMINDOJO_DEV'] == "true"
     # used for development only:
         config.vm.synced_folder "../../admindojo-client", "/admindojoclient"
     end
