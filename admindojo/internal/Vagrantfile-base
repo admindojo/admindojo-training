@@ -45,7 +45,6 @@
 
 
     config.vm.box = "admindojo/ubuntu18"
-    config.vm.provision :shell, path: "../admindojo/internal/bootstrap_debian.sh"
 
     config.vm.synced_folder ".", "/vagrant"
     config.vm.synced_folder "../admindojo", "/admindojo"
@@ -53,6 +52,8 @@
     if ENV['ADMINDOJO_DEV'] == "true"
     # used for development only:
         config.vm.synced_folder "../../admindojo-client", "/admindojoclient"
+    else
+        config.vm.provision :shell, path: "../admindojo/internal/bootstrap_debian.sh"
     end
 
     if ENV['ADMINDOJO_TESTING'] == "true"
