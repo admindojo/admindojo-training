@@ -10,7 +10,7 @@
     ## Config Plugins
 
     # disable auto update guestools in case plugin is installed
-    if Vagrant.has_plugin?("vbguest")
+    if Vagrant.has_plugin?("vagrant-vbguest")
         config.vbguest.auto_update = false
     end
 
@@ -94,7 +94,7 @@
 
     # Run cleanup at 'vagrant destroy'
     config.trigger.before :destroy do |trigger|
-      trigger.warn = "Your progress will be deleted!"
+      trigger.warn = "Your unsaved progress will be deleted!"
       trigger.run_remote = {path:  "../admindojo/internal/destroy.sh"}
     end
 
