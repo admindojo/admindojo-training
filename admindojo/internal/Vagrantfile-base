@@ -10,7 +10,7 @@
     ## Config Plugins
 
     # disable auto update guestools in case plugin is installed
-    if Vagrant.has_plugin?("vagrant-vbguest")
+    if Vagrant.has_plugin?("vbguest")
         config.vbguest.auto_update = false
     end
 
